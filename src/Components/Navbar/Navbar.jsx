@@ -8,9 +8,10 @@ const Navbar = () => {
     const links = <>
         <li className="lg:mr-5"><NavLink to='/'>Home</NavLink></li>
         <li className="lg:mr-5"><NavLink to='/login'>Login</NavLink></li>
+        <li className="lg:mr-5"><NavLink to='/addproduct'>Add Product</NavLink></li>
     </>
     return (
-        <div className="navbar bg-opacity-20 bg-white absolute top-0 z-10">
+        <div className="navbar bg-opacity-40 bg-white absolute top-0 z-10">
             <div className="navbar-start">
                 <div className="dropdown -mr-2">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

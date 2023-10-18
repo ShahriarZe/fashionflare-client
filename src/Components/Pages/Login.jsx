@@ -3,9 +3,13 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import loginBg from '../../assets/login.png'
 
 const Login = () => {
     const [errorText, setErrorText] = useState('')
+    const bgStyle = {
+        backgroundImage: `url(${loginBg})`,
+    }
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -59,8 +63,8 @@ const Login = () => {
 
     return (
         <div>
-            <div className="items-center justify-center bg-cover bg-center min-h-screen ">
-                <form onSubmit={handleLogin} className=" card-body md:3/4 lg:w-1/2 mx-auto">
+            <div className="items-center justify-center bg-cover bg-center min-h-screen " style={bgStyle}>
+                <form onSubmit={handleLogin} className=" card-body md:3/4 lg:w-1/2 mx-auto ">
                     <h2 className="text-3xl mt-24 text-center font-bold">Please Login</h2>
                     <div className="form-control">
                         <label className="label">

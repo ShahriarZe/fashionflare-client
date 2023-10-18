@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import Summer from '../../assets/sale.jpg'
+import Baby from '../../assets/baby.jpg'
 import { useEffect, useState } from "react";
+import Marquee from "react-fast-marquee";
 
 const SummerSale = () => {
 
     const summerBg = {
-        backgroundImage: `url(${Summer})`,
+        backgroundImage: `url(${Baby})`,
     }
 
     const [days, setDays] = useState('00');
@@ -41,58 +42,55 @@ const SummerSale = () => {
 
     return (
         <>
-            <div className="hero mx-auto mt-12" style={summerBg}>
-                <div className="hero-overlay bg-opacity-40 "></div>
-                <div className="hero-content text-center text-neutral-content">
-                    <div className="flex flex-col lg:flex-row items-center justify-center mt-12 ">
-                        <div>
-                            <h1 className="mb-5 text-5xl font-bold text-center lg:text-left  text-white">Upto 30% SALE</h1>
+            <div className="hero min-h-screen mt-12" style={summerBg}>
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className=" text-center text-neutral-content">
+                    <div className="">
+                        <h1 className="mb-5 text-5xl font-bold">Save 30% Off  <span className="text-blue-950 font-extrabold">Kids Fashion</span>!!</h1>
+                        <Marquee speed={100}>
+                        Dive into the world of enchanting fashion for little ones! Our ongoing kids sale brings you an exclusive collection of trendy outfits, playful accessories, and adorable footwear, all designed to make your child shine bright
+                        </Marquee>
+                    </div>
+                    <div>
+                        <div className="mt-10">
+                            <p className=' text-white text-3xl font-semibold'>Times Remaining for Kids Sale !</p>
+                            <div className=" w-auto p-2 m-4 rounded-lg ">
+                                <div className="flex flex-row justify-center">
+                                    <div className="flex flex-col items-center justify-center m-2">
 
-                            <p className="mb-5 text-white text-center lg:text-left text-xl">Embrace the sunshine and savings with our scorching hot summer sale! Dive into exclusive deals and make your summer unforgettable!</p>
-                            <div className="mt-4 flex justify-center lg:justify-start">
-                <Link to={'/register'} className="btn btn-outline text-white">SHOP NOW</Link>
+                                        <p className="text-white text-4xl">{days}</p>
 
-                </div>
-                        </div>
-                        
-                        <div className="mt-5">
-                        <p className=' text-white text-3xl font-semibold '>Summer Sale Starts In:</p>
-                        <div className=" w-auto p-2 m-4 rounded-lg ">
-                            <div className="flex flex-row justify-center">
-                                <div className="flex flex-col items-center justify-center m-2">
-                                   
-                                   <p className="text-white text-4xl">{days}</p>
-                                   
-                                    <p className="text-white">Days</p>
-                                </div>
-                                <p className='text-4xl text-white mt-2'>:</p>
-                                <div className="flex flex-col items-center justify-center m-2">
-                                    
+                                        <p className="text-white">Days</p>
+                                    </div>
+                                    <p className='text-4xl text-white mt-2'>:</p>
+                                    <div className="flex flex-col items-center justify-center m-2">
+
                                         <p className="text-white text-4xl">{hours}</p>
-                                   
-                                    <p className="text-white">Hours</p>
+
+                                        <p className="text-white">Hours</p>
+                                    </div>
+                                    <p className='text-4xl text-white mt-2'>:</p>
+                                    <div className="flex flex-col items-center justify-center m-2">
+
+                                        <p className="text-white text-4xl">{minutes}</p>
+
+                                        <p className="text-white">Minutes</p>
+                                    </div>
+                                    <p className='text-4xl text-white mt-2'>:</p>
+                                    <div className="flex flex-col items-center justify-center m-2">
+
+                                        <p className="text-white text-4xl">{seconds}</p>
+
+                                        <p className="text-white">seconds</p>
+                                    </div>
                                 </div>
-                                <p className='text-4xl text-white mt-2'>:</p>
-                                <div className="flex flex-col items-center justify-center m-2">
-                                   
-                                    <p className="text-white text-4xl">{minutes}</p>
-                                    
-                                    <p className="text-white">Minutes</p>
-                                </div>
-                                <p className='text-4xl text-white mt-2'>:</p>
-                                <div className="flex flex-col items-center justify-center m-2">
-                                    
-                                    <p className="text-white text-4xl">{seconds}</p>
-                                   
-                                    <p className="text-white">seconds</p>
-                                </div>
+                                <Link to={'/register'} className="btn btn-outline text-white mt-5">Shop NOW</Link>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </>
     );
 };

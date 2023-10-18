@@ -1,11 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from 'react-icons/fa';
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
 
-    const {googleSignIn,createUSer} = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const { googleSignIn, createUSer } = useContext(AuthContext)
 
     const handleRegister = e => {
         e.preventDefault()
@@ -16,24 +21,73 @@ const Register = () => {
         const image = form.image.value
         const user = { email, password, name, image }
         console.log(user);
+        if (password.length < 6) {
+            e.target.reset()
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password Must be 6 Characters Long!',
+            })
+        }
+        else if (!/[A-Z]/.test(password)) {
+            e.target.reset()
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password Must Conatain 1 Uppercase Letter!',
+            })
+        }
+        else if (!/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(password)) {
+            e.target.reset()
+            return Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password Must Conatain 1 Special Character!',
+            })
+        }
 
-        createUSer(email,password)
-        .then(result =>{
-            console.log(result.user);
-        })
-        .catch(err =>{
-            console.log(err);
-        })
+        createUSer(email, password)
+            .then(result => {
+                console.log(result.user);
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: image
+                })
+                navigate(location.state ? location.state : '/')
+                e.target.reset()
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Congratulations...',
+                    text: 'Registration Successfull',
+                })
+
+            })
+            .catch(err => {
+                console.log(err);
+                e.target.reset()
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'User Already Exist',
+                })
+            })
     }
 
-    const handleGoogleButton =() =>{
+    const handleGoogleButton = () => {
         googleSignIn()
-        .then(result =>{
-            console.log(result.user);
-        })
-        .catch(err =>{
-            console.log(err);
-        })
+            .then(result => {
+                console.log(result.user);
+                navigate(location.state ? location.state : '/')
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Congratulations...',
+                    text: 'Login Successfull',
+                })
+
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     return (

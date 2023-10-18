@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "name": "NIKE",
+      "image": "https://i.ibb.co/8XXLWT5/nike-logo-and-just-do-it-symbol-black-with-name-clothes-design-icon-abstract-football-illustration-w.jpg"
+    },
+    {
+      "id": 2,
+      "name": "ADIDAS",
+      "image": "https://i.ibb.co/f8J4rng/adidas.webp"
+    },
+    {
+      "id": 3,
+      "name": "ZARA",
+      "image": "https://i.ibb.co/GTXrPdT/zra.jpg"
+    },
+    {
+      "id": 4,
+      "name": "GUCCI",
+      "image": "https://i.ibb.co/Lp38G6y/gucci.jpg"
+    },
+    {
+      "id": 5,
+      "name": "H&M",
+      "image": "https://i.ibb.co/nfn7z7t/H-M-1000x1000px.jpg"
+    },
+    {
+      "id": 6,
+      "name": "LEVIS",
+      "image": "https://i.ibb.co/Ctq8H7k/levi.jpg"
+    }
+  ]
+  

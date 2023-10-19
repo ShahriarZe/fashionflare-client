@@ -14,6 +14,7 @@ import AddProduct from './Components/AddProduct/AddProduct.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
 import ViewProduct from './Components/AddProduct/ViewProduct.jsx';
 import ViewDetails from './Components/AddProduct/ViewDetails.jsx';
+import MyCart from './Components/MyCart.jsx/MyCart.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,16 +40,23 @@ const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path:"/viewproduct/:name",
-        element:<ViewProduct></ViewProduct>,
-        loader:()=>fetch('http://localhost:5000/products')
+        path: "/viewproduct/:name",
+        element: <ViewProduct></ViewProduct>,
+        loader: () => fetch('http://localhost:5000/products')
       },
       {
-        path:"/viewDetails/:id",
-        element:<PrivateRoute>
+        path: "/viewDetails/:id",
+        element: <PrivateRoute>
           <ViewDetails></ViewDetails>
         </PrivateRoute>,
-        loader:()=>fetch('http://localhost:5000/products')
+        loader: () => fetch('http://localhost:5000/products')
+      },
+      {
+        path: "/mycart",
+        element: <PrivateRoute>
+          <MyCart></MyCart>
+        </PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/cart')
       }
     ]
   },

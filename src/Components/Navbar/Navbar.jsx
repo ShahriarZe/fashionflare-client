@@ -25,6 +25,7 @@ const Navbar = () => {
     const links = <>
         <li className="lg:mr-5"><NavLink to='/'>Home</NavLink></li>
         <li className="lg:mr-5 "><NavLink to='/addproduct'>Add Product</NavLink></li>
+        <li className="lg:mr-5 "><NavLink to='/mycart'>My Cart</NavLink></li>
     </>
     return (
         <div className="navbar bg-opacity-40 bg-white absolute top-0 z-10">

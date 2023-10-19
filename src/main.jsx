@@ -13,6 +13,7 @@ import Login from './Components/Pages/Login.jsx';
 import AddProduct from './Components/AddProduct/AddProduct.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
 import ViewProduct from './Components/AddProduct/ViewProduct.jsx';
+import ViewDetails from './Components/AddProduct/ViewDetails.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,7 +40,15 @@ const router = createBrowserRouter([
       },
       {
         path:"/viewproduct/:name",
-        element:<ViewProduct></ViewProduct>
+        element:<ViewProduct></ViewProduct>,
+        loader:()=>fetch('http://localhost:5000/products')
+      },
+      {
+        path:"/viewDetails/:id",
+        element:<PrivateRoute>
+          <ViewDetails></ViewDetails>
+        </PrivateRoute>,
+        loader:()=>fetch('http://localhost:5000/products')
       }
     ]
   },

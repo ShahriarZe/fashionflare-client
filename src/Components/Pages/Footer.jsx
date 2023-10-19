@@ -1,7 +1,7 @@
 import Nav from '../../assets/nv.png'
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200  mt-6 bg-gradient-to-t from-blue-900 text-blue-950 font-extrabold ">
+        <footer className="footer p-10 bg-base-200   bg-gradient-to-t from-blue-900  font-extrabold ">
             <aside>
                <img className='w-2/6' src={Nav} alt="" />
                 <p>FashionFlare Ltd.<br />Providing reliable service since 2010</p>

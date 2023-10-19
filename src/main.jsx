@@ -12,6 +12,7 @@ import AuthProvider from './Providers/AuthProvider.jsx';
 import Login from './Components/Pages/Login.jsx';
 import AddProduct from './Components/AddProduct/AddProduct.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
+import ViewProduct from './Components/AddProduct/ViewProduct.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('brands.json')
+        loader: () => fetch('/brands.json')
       },
       {
         path: "/register",
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
           <AddProduct></AddProduct>
         </PrivateRoute>
       },
+      {
+        path:"/viewproduct/:name",
+        element:<ViewProduct></ViewProduct>
+      }
     ]
   },
 ]);

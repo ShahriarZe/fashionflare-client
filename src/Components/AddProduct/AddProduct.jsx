@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import loginBg from '../../assets/login.png'
 import Marquee from "react-fast-marquee";
 const AddProduct = () => {
@@ -17,6 +18,28 @@ const AddProduct = () => {
         const rating = form.rating.value
         const newProduct = {photo,name,brand,type,price,description,rating}
         console.log(newProduct);
+
+        // Send Data to Server
+        fetch('http://localhost:5000/products',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body : JSON.stringify(newProduct)
+        })
+        .then(res=> res.json())
+        .then(data =>{
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Congratulations...',
+                    text: 'Product Added Successfully',
+                    confirmButtonText:'Cool'
+                })
+            }
+            form.reset()
+        })
     }
     return (
 
@@ -68,10 +91,10 @@ const AddProduct = () => {
                     </div>
                     <div className="form-control md:w-1/2 lg:ml-4">
                         <label className="label">
-                            <span className="label-text">Price</span>
+                            <span className="label-text">Price $</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="price" placeholder="Price" className="input input-bordered  w-full" />
+                            <input type="text" name="price" placeholder="Price $" className="input input-bordered  w-full" />
                         </label>
                     </div>
                 </div>

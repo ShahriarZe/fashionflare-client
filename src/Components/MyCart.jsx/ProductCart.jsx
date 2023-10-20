@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
 /* eslint-disable react/prop-types */
-const ProductCart = ({ product,remove,setRemove }) => {
+const ProductCart = ({ product, remove, setRemove }) => {
   const { _id, name, photo, type, brand, rating, price, description } = product
 
   const handleDelete = _id => {
@@ -16,7 +16,7 @@ const ProductCart = ({ product,remove,setRemove }) => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/cart/${_id}`, {
+        fetch(`https://fashionflare-server-4zd8mcihk-shahriar-ahmmeds-projects.vercel.app/cart/${_id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())
@@ -28,7 +28,7 @@ const ProductCart = ({ product,remove,setRemove }) => {
                 'Product has been deleted.',
                 'success'
               )
-              const remaningProduct = remove.filter(item=> item._id !== _id)
+              const remaningProduct = remove?.filter(item => item._id !== _id)
               setRemove(remaningProduct)
             }
           })
@@ -66,10 +66,3 @@ const ProductCart = ({ product,remove,setRemove }) => {
 
 export default ProductCart;
 
-
-
-// Swal.fire(
-//     'Deleted!',
-//     'Your file has been deleted.',
-//     'success'
-//   )

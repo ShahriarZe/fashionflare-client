@@ -16,37 +16,37 @@ const AddProduct = () => {
         const price = form.price.value
         const description = form.description.value
         const rating = form.rating.value
-        const newProduct = {photo,name,brand,type,price,description,rating}
+        const newProduct = { photo, name, brand, type, price, description, rating }
         console.log(newProduct);
 
         // Send Data to Server
-        fetch('http://localhost:5000/products',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
+        fetch('https://fashionflare-server-4zd8mcihk-shahriar-ahmmeds-projects.vercel.app/products', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
             },
-            body : JSON.stringify(newProduct)
+            body: JSON.stringify(newProduct)
         })
-        .then(res=> res.json())
-        .then(data =>{
-            console.log(data);
-            if(data.insertedId){
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Congratulations...',
-                    text: 'Product Added Successfully',
-                    confirmButtonText:'Cool'
-                })
-            }
-            form.reset()
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Congratulations...',
+                        text: 'Product Added Successfully',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+                form.reset()
+            })
     }
     return (
 
         <div className="p-20 lg:p-40  bg-cover bg-center min-h-screen" style={bgStyle}>
             <Marquee speed={100}>
-                       !!!! PLEASE USE UPPERCASE FOR BRAND NAME & VALID PHOTO URL FROM IMAGE BB !!!!
-                        </Marquee>
+                !!!! PLEASE USE UPPERCASE FOR BRAND NAME & VALID PHOTO URL FROM IMAGE BB !!!!
+            </Marquee>
             <form onSubmit={handleAddProduct}>
                 {/* Image Input */}
                 <div className="mb-6">

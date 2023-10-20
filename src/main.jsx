@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -45,28 +45,28 @@ const router = createBrowserRouter([
       {
         path: "/viewproduct/:name",
         element: <ViewProduct></ViewProduct>,
-        loader: () => fetch('http://localhost:5000/products')
+        loader: () => fetch('https://fashionflare-server-4zd8mcihk-shahriar-ahmmeds-projects.vercel.app/products')
       },
       {
         path: "/viewDetails/:id",
         element: <PrivateRoute>
           <ViewDetails></ViewDetails>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/products')
+        loader: () => fetch('https://fashionflare-server-4zd8mcihk-shahriar-ahmmeds-projects.vercel.app/products')
       },
       {
         path: "/mycart",
         element: <PrivateRoute>
           <MyCart></MyCart>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/cart')
+        loader: () => fetch('https://fashionflare-server-4zd8mcihk-shahriar-ahmmeds-projects.vercel.app/cart')
       },
       {
         path: "/update/:id",
         element: <PrivateRoute>
           <UpdateProduct></UpdateProduct>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/products')
+        loader: () => fetch('https://fashionflare-server-4zd8mcihk-shahriar-ahmmeds-projects.vercel.app/products')
       }
     ]
   },

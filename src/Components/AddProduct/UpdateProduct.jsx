@@ -6,38 +6,38 @@ import Swal from "sweetalert2";
 const UpdateProduct = () => {
 
     const updatedProduct = useLoaderData()
-    const {id} = useParams()
+    const { id } = useParams()
 
     const update = updatedProduct.find(value => value._id == id)
-    const {_id,name, photo, type, brand, rating,description, price } = update
+    const { _id, name, photo, type, brand, rating, description, price } = update
 
     const bgStyle = {
         backgroundImage: `url(${loginBg})`,
     }
-    const handleUpdateProduct = e =>{
+    const handleUpdateProduct = e => {
         e.preventDefault();
-            const form = e.target;
-            const photo = form.photo.value
-            const name = form.name.value
-            const brand = form.brand.value
-            const type = form.type.value
-            const price = form.price.value
-            const description = form.description.value
-            const rating = form.rating.value
-            const editedProduct = {photo,name,brand,type,price,description,rating}
-            console.log(editedProduct);
+        const form = e.target;
+        const photo = form.photo.value
+        const name = form.name.value
+        const brand = form.brand.value
+        const type = form.type.value
+        const price = form.price.value
+        const description = form.description.value
+        const rating = form.rating.value
+        const editedProduct = { photo, name, brand, type, price, description, rating }
+        console.log(editedProduct);
 
-            fetch(`http://localhost:5000/update/${_id}`,{
-                method:'PUT',
-                headers:{
-                    'content-type':'application/json'
-                },
-                body:JSON.stringify(editedProduct)
-            })
-            .then(res=>res.json())
-            .then(data =>{
+        fetch(`https://fashionflare-server-4zd8mcihk-shahriar-ahmmeds-projects.vercel.app/update/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(editedProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
                 console.log(data);
-                if(data.modifiedCount){
+                if (data.modifiedCount) {
                     Swal.fire(
                         'Congratulations!',
                         'Product Updated',
@@ -49,8 +49,8 @@ const UpdateProduct = () => {
     return (
         <div className="p-20 lg:p-40  bg-cover bg-center min-h-screen" style={bgStyle}>
             <Marquee speed={100}>
-                       !!!! PLEASE USE UPPERCASE FOR BRAND NAME & VALID PHOTO URL FROM IMAGE BB !!!!
-                        </Marquee>
+                !!!! PLEASE USE UPPERCASE FOR BRAND NAME & VALID PHOTO URL FROM IMAGE BB !!!!
+            </Marquee>
             <form onSubmit={handleUpdateProduct}>
                 {/* Image Input */}
                 <div className="mb-6">
@@ -59,7 +59,7 @@ const UpdateProduct = () => {
                             <span className="label-text">Photo URL</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" defaultValue={photo} placeholder="Photo URL" name="photo"  className="w-full input input-bordered  " />
+                            <input type="text" defaultValue={photo} placeholder="Photo URL" name="photo" className="w-full input input-bordered  " />
                         </label>
                     </div>
                 </div>

@@ -8,14 +8,14 @@ const ViewDetails = () => {
     const details = useLoaderData()
     const { id } = useParams()
 
-    const {user}=useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
 
     const viewDetails = details.find(item => item._id == id)
-     viewDetails.email=user.email
-     const userEmail = {
-        email:user?.email,
-        id : viewDetails._id,
+    viewDetails.email = user.email
+    const userEmail = {
+        email: user?.email,
+        id: viewDetails._id,
         photo: viewDetails.photo,
         name: viewDetails.name,
         brand: viewDetails.brand,
@@ -23,11 +23,11 @@ const ViewDetails = () => {
         price: viewDetails.price,
         description: viewDetails.description,
         rating: viewDetails.rating
-     }
-     console.log(viewDetails);
+    }
+    console.log(viewDetails);
     const saveToCart = () => {
         console.log(viewDetails);
-        fetch('http://localhost:5000/cart', {
+        fetch('https://fashionflare-server-4zd8mcihk-shahriar-ahmmeds-projects.vercel.app/cart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -57,8 +57,8 @@ const ViewDetails = () => {
                         <p>{viewDetails.description}</p>
                         <p>Type : {viewDetails.type}</p>
                         <div className="card-actions">
-                        Brand:<div className="badge badge-outline font-extrabold text-xl">{viewDetails.brand}</div>
-                    </div>
+                            Brand:<div className="badge badge-outline font-extrabold text-xl">{viewDetails.brand}</div>
+                        </div>
                         <p>Rating : {viewDetails.rating}</p>
                         <p>Price: {viewDetails.price} $</p>
                         <div className="card-actions justify-end">

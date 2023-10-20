@@ -7,7 +7,7 @@ const SingleBrand = ({ brandProduct }) => {
     const {_id, name, photo, type, brand, rating, price } = brandProduct
     return (
         <div>
-            <div className="card bg-base-100 shadow-xl">
+            <div className="card bg-base-100 shadow-xl border">
                 <figure><img className="h-56" src={photo} /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
@@ -24,7 +24,9 @@ const SingleBrand = ({ brandProduct }) => {
                         <Link to={`/viewDetails/${_id}`}>
                             <button className="btn btn-outline">View Details</button>
                         </Link>
+                        <Link to={`/update/${_id}`}>
                         <button className="btn btn-outline">Update</button>
+                        </Link>
                     </div>
                 </div>
             </div>

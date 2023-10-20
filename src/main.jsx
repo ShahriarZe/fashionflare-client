@@ -15,10 +15,13 @@ import PrivateRoute from './Routes/PrivateRoute.jsx';
 import ViewProduct from './Components/AddProduct/ViewProduct.jsx';
 import ViewDetails from './Components/AddProduct/ViewDetails.jsx';
 import MyCart from './Components/MyCart.jsx/MyCart.jsx';
+import UpdateProduct from './Components/AddProduct/UpdateProduct.jsx';
+import ErrorPage from './Routes/ErrorPage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -57,6 +60,13 @@ const router = createBrowserRouter([
           <MyCart></MyCart>
         </PrivateRoute>,
         loader: () => fetch('http://localhost:5000/cart')
+      },
+      {
+        path: "/update/:id",
+        element: <PrivateRoute>
+          <UpdateProduct></UpdateProduct>
+        </PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/products')
       }
     ]
   },

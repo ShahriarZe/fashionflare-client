@@ -13,7 +13,7 @@ const HotDeals = () => {
     return (
        <div>
         <div>
-            <h1 className='text-center text-5xl font-extrabold mt-10 text-blue-950'>Trending Sales</h1>
+            <h1 className='text-center text-5xl font-extrabold mt-10'>Trending Sales</h1>
         </div>
          <div className='max-w-md mx-auto mt-2'>
             <Swiper

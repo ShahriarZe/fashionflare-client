@@ -5,30 +5,35 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 const Navbar = () => {
 
+
     const [theme,setTheme]=useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
 
     const handleToggle = (e)=>{
         if(e.target.checked){
-            setTheme("dark")
+            setTheme("luxury")
         }else{
             setTheme("light")
         }
     }
 
-    useEffect(()=>{
-        localStorage.setItem("theme",theme)
-        const localTheme = localStorage.getItem("theme")
-        document.querySelector("html").setAttribute("data-theme",localTheme)
+    useEffect(()=> {
+        
+            
+                localStorage.setItem("theme",theme)
+                const localTheme = localStorage.getItem("theme")
+                document.querySelector("html").setAttribute("data-theme",localTheme)
+            
+       
     },[theme])
 
     const { user, logOut } = useContext(AuthContext)
     const links = <>
-        <li className="lg:mr-5"><NavLink to='/'>Home</NavLink></li>
-        <li className="lg:mr-5 "><NavLink to='/addproduct'>Add Product</NavLink></li>
-        <li className="lg:mr-5 "><NavLink to='/mycart'>My Cart</NavLink></li>
+        <li className="lg:mr-5 font-extrabold text-xl"><NavLink to='/'>Home</NavLink></li>
+        <li className="lg:mr-5 font-extrabold text-xl"><NavLink to='/addproduct'>Add Product</NavLink></li>
+        <li className="lg:mr-5 font-extrabold text-xl"><NavLink to='/mycart'>My Cart</NavLink></li>
     </>
     return (
-        <div className="navbar bg-opacity-40 bg-white absolute top-0 z-10">
+        <div className="navbar bg-opacity-40 bg-gray-400 absolute top-0 z-10">
             <div className="navbar-start">
                 <div className="dropdown -mr-2">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -48,15 +48,15 @@ const Testimonials = () => {
         slidesToScroll: 1,
       };
       return (
-        <div className="testimonial-slider-container p-8  text-blue-950 mt-10 mb-10 bg-base-200" style={bgStyle}>
-          <h2 className='text-center text-blue-950 font-bold text-3xl lg:text-5xl mb-5'>Reviews & Recommendation</h2>
+        <div className="testimonial-slider-container p-8   mt-10 mb-10 bg-base-200" style={bgStyle}>
+          <h2 className='text-center  font-bold text-3xl lg:text-5xl mb-5'>Reviews & Recommendation</h2>
           <Slider {...settings}>
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="testimonial-content text-center">
                 <div className="flex flex-col items-center justify-center">
                   <img src={testimonial.image} alt={testimonial.name} className="mb-4 rounded-full w-20 h-20" />
                   <h2 className="text-xl font-bold mb-2">{testimonial.name}</h2>
-                  <p className="text-gray-600">{testimonial.message}</p>
+                  <p className="">{testimonial.message}</p>
                 </div>
               </div>
             ))}

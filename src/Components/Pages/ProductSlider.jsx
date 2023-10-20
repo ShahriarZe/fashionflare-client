@@ -16,7 +16,7 @@ const ProductSlider = () => {
     return (
      <div>
         <div>
-            <h1 className='text-center text-5xl font-extrabold mt-16 '>Advertisement</h1>
+            <h1 className='text-center text-3xl lg:text-5xl font-extrabold mt-16 '>Advertisement</h1>
         </div>
          <div className='container mx-auto mt-2'>
           <Swiper

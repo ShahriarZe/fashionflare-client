@@ -1,6 +1,7 @@
 # FashionFlare LTD
 ## Live Link :  https://fashion-flare-ffc3a.web.app/
-## Live Link : https://github.com/ShahriarZe/fashionflare-server
+## Server Link : https://github.com/ShahriarZe/fashionflare-server
+### Technology Used : React,React Router,Firebase,MongoDB,Tailwind CSS,Express JS
 
 ## Features :
 
